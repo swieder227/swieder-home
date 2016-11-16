@@ -1,0 +1,37 @@
+$breakpoint--portfolio-mobile: 500px;
+
+.portfolio-grid {
+  width: 100%;
+}
+
+.portfolio-grid__row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  @media (max-width: $breakpoint--portfolio-mobile){
+    flex-direction: column;
+  }
+}
+
+.portfolio-grid__row:not(last-child){
+  margin-bottom: 5%;
+}
+
+.portfolio-grid__item {
+
+
+  @media (min-width: $breakpoint--portfolio-mobile + 1){
+    &:first-child {
+      margin-right: 2.5%;
+    }
+    &:last-child {
+      margin-left: 2.5%;
+    }
+  }
+
+  @media (max-width: $breakpoint--portfolio-mobile){
+    margin: 5% auto;
+  }
+
+}

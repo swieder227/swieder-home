@@ -1,0 +1,14 @@
+.case-study-card {
+  width: 25rem;
+  height: 20rem;
+  max-width: 100%;
+  border: 1px solid #bdbdbd;
+  box-shadow: 0 2px 4px rgba(63,63,63,0.4);
+
+  &[disabled] {
+    cursor: no-drop;
+    box-shadow: none;
+    opacity: 0.4;
+    background-color: #f1f1f1;
+  }
+}
