@@ -17,8 +17,8 @@ var uglify = require('gulp-uglify');
 
 var PATHS = {
   input: path.join(__dirname, 'src'),
-  dev_out: path.join(__dirname, '.dev'),
-  prod_out: path.join(__dirname, 'dist')
+  dev_out: path.join(__dirname, 'public', '.dev'),
+  prod_out: path.join(__dirname, 'public', 'dist')
 }
 
 var FILENAMES = {

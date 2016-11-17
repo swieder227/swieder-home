@@ -28,7 +28,7 @@ body {
   }
 }
 
-section {
+.full-page {
   min-height: 100vh;
   max-width: 960px;
   margin: 0 auto;
@@ -39,7 +39,7 @@ section {
   justify-content: center;
   flex-direction: column;
 
-  &.section--centered {
+  &.full-page--centered {
     align-items: center;
   }
 }
@@ -71,7 +71,7 @@ button {
 h1, h2 {
   font-size: 9vw;
   font-weight: normal;
-  margin: 0 0 2rem 0;
+  margin: -2rem 0 2rem 0;
   @media (max-width: 1024px){
     font-size: 5rem;
   }
