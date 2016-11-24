@@ -17,6 +17,10 @@ body {
   box-sizing: border-box;
 }
 
+img {
+  max-width: 100%;
+}
+
 @media (max-width: $breakpoint--mobile-max){
   .site--desktop-only {
     display: none;
@@ -44,13 +48,15 @@ body {
   }
 }
 
-button {
-  background: black;
-  color: white;
+button, .button {
+  display: inline-block;
+  background: $color--black;
+  color: $color--white !important;
   border: none;
   border-radius: 3px;
   padding: 0.6rem 1.5rem;
   text-transform: uppercase;
+  text-decoration: none;
   font-size: 0.8rem;
   font-family: $font--sans;
   letter-spacing: 0.5px;
