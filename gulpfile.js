@@ -15,6 +15,10 @@ var source = require('vinyl-source-stream');
 var gutil = require('gulp-util');
 var uglify = require('gulp-uglify');
 
+// templates
+var fs = require('fs');
+var handlebars = require('gulp-compile-handlebars');
+
 var PATHS = {
   input: path.join(__dirname, 'src'),
   dev_out: path.join(__dirname, 'public', '.dev'),
@@ -73,6 +77,41 @@ gulp.task('devJs', function(){
 });
 
 /**
+ * Compile case studies in static HTML files
+ */
+gulp.task('compileCaseStudies', function(){
+
+  var template = path.join(PATHS.input, 'views', 'case-study.handlebars');
+
+  // array of files within dir
+  var case_filenames = fs.readdirSync(path.join(PATHS.input, 'case-study-data'));
+
+  case_filenames.forEach(function(filename){
+
+    var data = require(path.join(PATHS.input, 'case-study-data', filename));
+    var name = filename.replace(/.json$/, '');
+
+    gulp.src(template)
+      .pipe(handlebars(data))
+      .pipe(concat("case-study_" + name + '.html'))
+      .pipe(gulp.dest(PATHS.dev_out))
+      .pipe(connect.reload());
+  });
+
+});
+
+/**
+ * Compile index into a static HTML file
+ */
+gulp.task('compileIndex', function(){
+  gulp.src(path.join(PATHS.input, 'views', 'index.handlebars'))
+    .pipe(handlebars())
+    .pipe(concat("index.html"))
+    .pipe(gulp.dest(PATHS.dev_out))
+    .pipe(connect.reload());
+});
+
+/**
  * Watch files, run task when modified.
  */
 gulp.task("devWatch", function(){
@@ -80,16 +119,29 @@ gulp.task("devWatch", function(){
   gulp.watch([
     path.join(PATHS.input, 'scss', '*.scss'),
     path.join(PATHS.input, 'scss', '**', '*.scss')
-  ], function(event){
+  ], function(){
     gulp.start('devScss');
   });
 
   gulp.watch([
     path.join(PATHS.input, 'js', '*.js'),
     path.join(PATHS.input, 'js', 'components', '*.js'),
-  ], function(event){
+  ], function(){
     gulp.start('devJs');
   });
+
+  gulp.watch([
+    path.join(PATHS.input, 'views', 'case-study.handlebars'),
+    path.join(PATHS.input, 'case-study-data', '*.json')
+  ], function(){
+    gulp.start('compileCaseStudies')
+  })
+
+  gulp.watch([
+    path.join(PATHS.input, 'views', 'index.handlebars')
+  ], function(){
+    gulp.start('compileIndex')
+  })
 
 });
 
@@ -98,7 +150,7 @@ gulp.task("devWatch", function(){
  */
  gulp.task('devConnect', ['devScss', 'devJs', 'devWatch'], function() {
   connect.server({
-    root: __dirname,
+    root: [path.join('public', '.dev'), path.join('public', 'assets')],
     livereload: true
   });
  });

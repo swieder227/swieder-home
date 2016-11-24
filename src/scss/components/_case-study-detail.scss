@@ -1,6 +1,4 @@
 $case-study-detail__header--height: 4rem;
-$case-study-detail__content--max-width: 1200px;
-$case-study-detail__mobile--max: $case-study-detail__content--max-width + 100px;
 
 .case-study-detail {
 
@@ -38,7 +36,7 @@ $case-study-detail__mobile--max: $case-study-detail__content--max-width + 100px;
 }
 
 .case-study-detail__content-contain {
-  max-width: $case-study-detail__content--max-width;
+  max-width: 1200px;
   width: 90%;
   width: calc(100% - 4rem);
   margin: 2rem auto;
