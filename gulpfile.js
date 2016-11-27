@@ -104,8 +104,13 @@ gulp.task('compileCaseStudies', function(){
  * Compile index into a static HTML file
  */
 gulp.task('compileIndex', function(){
+  var opts = {
+    // array of filepaths for partials
+    batch: path.join(PATHS.input, 'views', 'partials')
+  }
+
   gulp.src(path.join(PATHS.input, 'views', 'index.handlebars'))
-    .pipe(handlebars())
+    .pipe(handlebars({}, opts))
     .pipe(concat("index.html"))
     .pipe(gulp.dest(PATHS.dev_out))
     .pipe(connect.reload());
