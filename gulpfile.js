@@ -143,7 +143,8 @@ gulp.task("devWatch", function(){
   })
 
   gulp.watch([
-    path.join(PATHS.input, 'views', 'index.handlebars')
+    path.join(PATHS.input, 'views', 'index.handlebars'),
+    path.join(PATHS.input, 'views', 'partials', '*.handlebars')
   ], function(){
     gulp.start('compileIndex')
   })
