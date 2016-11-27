@@ -88,7 +88,7 @@ gulp.task('compileCaseStudies', function(){
 
   case_filenames.forEach(function(filename){
 
-    var data = require(path.join(PATHS.input, 'case-study-data', filename));
+    var data = JSON.parse(fs.readFileSync(path.join(PATHS.input, 'case-study-data', filename)));
     var name = filename.replace(/.json$/, '');
 
     gulp.src(template)

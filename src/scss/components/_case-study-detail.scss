@@ -19,6 +19,7 @@ $case-study-detail__header--height: 4rem;
 }
 
 .case-study-detail__title {
+  font-family: $font--sans;
   font-size: 1.5rem;
   font-weight: normal;
   text-align: center;
@@ -47,13 +48,13 @@ $case-study-detail__header--height: 4rem;
   top: 0;
   bottom: 0;
   left: 5px;
-  width: 50px;
+  width: 40px;
   border-radius: 50%;
 
   svg {
     circle {
       stroke: white;
-      stroke-width: 3;
+      stroke-width: 5;
     }
     path {
       fill: white;
@@ -61,7 +62,7 @@ $case-study-detail__header--height: 4rem;
   }
 }
 
-.case-study-detail__group {
+.case-study-detail__slide {
 
   margin-bottom: 6rem;
   // box-shadow: 5px 5px 40px rgba(0,0,0,0.15);
