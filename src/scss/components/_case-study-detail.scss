@@ -19,7 +19,6 @@ $case-study-detail__header--height: 4rem;
 }
 
 .case-study-detail__title {
-  font-family: $font--sans;
   font-size: 1.5rem;
   font-weight: normal;
   text-align: center;
@@ -41,6 +40,11 @@ $case-study-detail__header--height: 4rem;
   width: 90%;
   width: calc(100% - 4rem);
   margin: 2rem auto;
+
+  @media (max-width: $breakpoint--mobile-max){
+    width: calc(100% - 2rem);
+    margin: 1rem auto;
+  }
 }
 
 .case-study-detail__back-btn {

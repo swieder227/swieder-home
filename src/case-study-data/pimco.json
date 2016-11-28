@@ -1,4 +1,81 @@
 {
   "title": "Market Drivers and Detours",
-  "back_href": "/#engineer"
+  "back_href": "/#engineer",
+  "slides": [
+    {
+      "picture_srcs": [
+        "<source srcset='/casestudies/pimco/pimco_previous@0,5x.jpg' media='(max-width: 768px)'>",
+        "<img src='/casestudies/pimco/pimco_previous.jpg'>"
+      ],
+      "caption_content": "<p>The previous year’s campaign. The client liked the narrative, but seeked a more interactive and interesting data visualization.</p>"
+    },
+    {
+      "picture_srcs": [
+        "<source srcset='/casestudies/pimco/pimco_datasets@0,5x.jpg' media='(max-width: 768px)'>",
+        "<img src='/casestudies/pimco/pimco_datasets.jpg'>"
+      ],
+      "caption_content": "<p>Data spreadsheets. 🤔 Surely we can make them more digestible and interesting. Enter data visualization. 🙌</p>"
+    },
+    {
+      "picture_srcs": [
+        "<source srcset='/casestudies/pimco/pimco_dataviz-early@0,5x.jpg' media='(max-width: 768px)'>",
+        "<img src='/casestudies/pimco/pimco_dataviz-early.jpg'>"
+      ],
+      "caption_content": "<p>Starting with a proof-of-concept, we set out to create a 3D environment where users could explore graphs using both pre-scripted and user-controlled camera movements.</p>"
+    },
+    {
+      "picture_srcs": [
+        "<source srcset='/casestudies/pimco/pimco_dataviz-mid@0,5x.jpg' media='(max-width: 768px)'>",
+        "<img src='/casestudies/pimco/pimco_dataviz-mid.jpg'>"
+      ],
+      "caption_content": "<p>By keeping the 3D prototype separate from UI, we were able to focus on key features and iterate quickly. Including: setting up an Orthographic Camera, mapping multiple datasets within multiple stories, normalizing X/Y axes and more.</p>"
+    },
+    {
+      "picture_srcs": [
+        "<source srcset='/casestudies/pimco/pimco_preview-psd@0,5x.jpg' media='(max-width: 768px)'>",
+        "<img src='/casestudies/pimco/pimco_preview-psd.jpg'>"
+      ],
+      "caption_content": "<p>The client was eager to see how the data sets would compare in the datavizualization. I created a PSD with linked screenshots and Layer Comps. This made it efficient to iterate, update screenshots, and automate an export process for a client-ready PDF.</p>"
+    },
+    {
+      "picture_srcs": [
+        "<source srcset='/casestudies/pimco/pimco_dataviz-late@0,5x.jpg' media='(max-width: 768px)'>",
+        "<img src='/casestudies/pimco/pimco_dataviz-late.jpg'>"
+      ],
+      "caption_content": "<p>Raycasting for hover effects, eased camera animations, interactive hotspots — all running at 60FPS.</p><br/><a href='https://swieder227.github.io/3D-dataviz-prototype/' class='button' target='_blank'>View Live Prototype</a>"
+    },
+    {
+      "picture_srcs": [
+        "<source srcset='/casestudies/pimco/pimco_code@0,5x.jpg' media='(max-width: 768px)'>",
+        "<img src='/casestudies/pimco/pimco_code.jpg'>"
+      ],
+      "caption_content": "<p>The code was organized, performance focused, well-documented and DRY.</p><br/><a href='https://github.com/swieder227/3D-dataviz-prototype' class='button' target='_blank'>Open Prototype Code Repo</a>"
+    },
+    {
+      "picture_srcs": [
+        "<source srcset='/casestudies/pimco/pimco_final-desktop@0,5x.jpg' media='(max-width: 768px)'>",
+        "<img src='/casestudies/pimco/pimco_final-desktop.jpg'>"
+      ]
+    },
+    {
+      "picture_srcs": [
+        "<source srcset='/casestudies/pimco/pimco_final-desktop2@0,5x.jpg' media='(max-width: 768px)'>",
+        "<img src='/casestudies/pimco/pimco_final-desktop2.jpg'>"
+      ]
+    },
+    {
+      "picture_srcs": [
+        "<source srcset='/casestudies/pimco/pimco_final-desktop3@0,5x.jpg' media='(max-width: 768px)'>",
+        "<img src='/casestudies/pimco/pimco_final-desktop3.jpg'>"
+      ],
+      "caption_content": "<p>With the dataviz complete, we integrated in the UI and narrative. The campaign launched on WSJ. The client and us agreed, we were able to build intruiging interactivity into the data and provide a vehicle for story-telling.</p>"
+    },
+    {
+      "picture_srcs": [
+        "<source srcset='/casestudies/pimco/pimco_final-mobile2@0,5x.jpg' media='(max-width: 768px)'>",
+        "<img src='/casestudies/pimco/pimco_final-mobile2.jpg'>"
+      ],
+      "caption_content": "<p>And of course, mobile responsive. We were able to reach our goal of maintaining interactivity and 60 FPS performance on mobile devices.</p>"
+    }
+  ]
 }
