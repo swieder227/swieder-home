@@ -21,6 +21,7 @@ var uglify = require('gulp-uglify');
 // templates
 var fs = require('fs');
 var handlebars = require('gulp-compile-handlebars');
+var htmlreplace = require('gulp-html-replace');
 
 var PATHS = {
   'input': path.join(__dirname, 'src'),
@@ -153,11 +154,26 @@ gulp.task('compileCaseStudies', function(){
     // get name without json extension
     var name = filename.replace(/.json$/, '');
 
-    // compile with handlebars()
     gulp.src(template)
+      // compile handlebars
       .pipe(handlebars(data, hbs_options))
+
+      // inject prod css/js asset paths
+      .pipe(gulpif( RUNTIME_CONFIG.isProd, htmlreplace({
+          css: '/'+RUNTIME_CONFIG.filenames.css,
+          js: '/'+RUNTIME_CONFIG.filenames.js
+        }, {
+          keepBlockTags: false
+        })
+      ))
+
+      // rename
       .pipe(concat("case-study_" + name + '.html'))
+
+      // output
       .pipe(gulp.dest(RUNTIME_CONFIG.paths.out))
+
+      // livereload
       .pipe(gulpif( RUNTIME_CONFIG.isDev, connect.reload() ))
   });
 
@@ -168,9 +184,26 @@ gulp.task('compileCaseStudies', function(){
  */
 gulp.task('compileIndex', function(){
   gulp.src(path.join(PATHS.input, 'views', 'index.handlebars'))
+
+    // compile handlebars
     .pipe(handlebars({}, hbs_options))
+
+    // inject prod css/js asset paths
+    .pipe(gulpif( RUNTIME_CONFIG.isProd, htmlreplace({
+        css: '/'+RUNTIME_CONFIG.filenames.css,
+        js: '/'+RUNTIME_CONFIG.filenames.js
+      }, {
+        keepBlockTags: false
+      })
+    ))
+
+    // rename
     .pipe(concat("index.html"))
+
+    // output
     .pipe(gulp.dest(RUNTIME_CONFIG.paths.out))
+
+    // livere
     .pipe(gulpif( RUNTIME_CONFIG.isDev, connect.reload() ))
 });
 
@@ -223,3 +256,12 @@ gulp.task("devWatch", function(){
  * Default task run w/ `gulp`
  */
 gulp.task('default', ['devConnect']);
+
+/**
+ * Prod gulp tasks
+ */
+gulp.task('prodBuild', ['scss', 'bundleJs', 'compileIndex', 'compileCaseStudies'], function(){
+  setTimeout(function(){
+    gutil.log(gutil.colors.green("prodBuild complete"), "|", "env:", ENV, "|", "output:", RUNTIME_CONFIG.paths.out )
+  }, 10 );
+})

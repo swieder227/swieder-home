@@ -2,7 +2,7 @@
 
 The front-end code for [sethwieder.com](http://www.sethwieder.com).
 
-#### Dev Setup
+#### Development Setup
     # Confirm Node is installed
     # If not found, go to nodejs.org
     npm -v
@@ -13,5 +13,11 @@ The front-end code for [sethwieder.com](http://www.sethwieder.com).
     # Install project dependencies
     npm install
 
-    # Run gulp to compile/watch assets
-    gulp
+    # Compile assets and run dev server
+    # Run gulp default task
+    npm start
+
+#### Production Build
+    # Generate production-ready assets
+    # Run gulp tasks with `prod` flag
+    npm run build
