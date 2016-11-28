@@ -2,17 +2,20 @@ var gulp = require("gulp");
 var path = require("path");
 var connect = require('gulp-connect');
 var notify = require('gulp-notify');
+var gutil = require('gulp-util');
+var gulpif = require('gulp-if');
 
 // scss
 var sass = require("gulp-sass");
 var sourcemaps = require("gulp-sourcemaps");
 var autoprefixer = require('gulp-autoprefixer');
 var concat = require("gulp-concat");
+var cssnano = require("gulp-cssnano")
 
 // js
 var browserify = require('browserify');
 var source = require('vinyl-source-stream');
-var gutil = require('gulp-util');
+var streamify = require('gulp-streamify');
 var uglify = require('gulp-uglify');
 
 // templates
@@ -20,17 +23,43 @@ var fs = require('fs');
 var handlebars = require('gulp-compile-handlebars');
 
 var PATHS = {
-  input: path.join(__dirname, 'src'),
-  dev_out: path.join(__dirname, 'public', '.dev'),
-  prod_out: path.join(__dirname, 'public', 'dist')
+  'input': path.join(__dirname, 'src'),
+  'out': {
+    'dev': path.join(__dirname, 'public', '.dev'),
+    'prod': path.join(__dirname, 'public', 'dist')
+  }
 }
 
 var FILENAMES = {
   'css': {
-    'dev': 'styles.css'
+    'dev': 'styles.css',
+    'prod': 'styles.min.css'
   },
   'js': {
-    'dev': 'bundle.js'
+    'dev': 'bundle.js',
+    'prod': 'bundle.min.js'
+  }
+}
+
+var ENV = undefined;
+if(gutil.env.env === undefined || gutil.env.env === 'dev'){
+  ENV = 'dev';
+} else if(gutil.env.env === 'prod') {
+  ENV = 'prod';
+} else {
+  gutil.log("Unknown env flag set:", gutil.env.env, "Exiting. 👋");
+  process.exit();
+}
+
+var RUNTIME_CONFIG = {
+  isProd: ENV === 'prod' ? true : false,
+  isDev: ENV === 'dev' ? true : false,
+  filenames: {
+    css: FILENAMES.css[ENV],
+    js: FILENAMES.js[ENV],
+  },
+  paths: {
+    out: PATHS.out[ENV]
   }
 }
 
@@ -47,55 +76,89 @@ function handleErrors() {
 /**
  * Compiles sass
  */
-gulp.task('devScss', function(){
+gulp.task('scss', function(){
   gulp.src(path.join(PATHS.input, 'scss', '*.scss'))
-    .pipe(sourcemaps.init())
+    // source maps
+    .pipe(gulpif( RUNTIME_CONFIG.isDev, sourcemaps.init() ))
+
+    // compile scss
     .pipe(sass().on('error', handleErrors))
-    .pipe(concat(FILENAMES.css.dev))
-    .pipe(sourcemaps.write('.'))
-    .pipe(gulp.dest(PATHS.dev_out))
-    .pipe(connect.reload())
+
+    // rename
+    .pipe(concat(RUNTIME_CONFIG.filenames.css))
+
+    // close sourcemap
+    .pipe(gulpif( RUNTIME_CONFIG.isDev, sourcemaps.write('.') ))
+
+    // prod functions
+    .pipe(gulpif( RUNTIME_CONFIG.isProd, autoprefixer({browsers: ['last 2 versions']}) ))
+    .pipe(gulpif( RUNTIME_CONFIG.isProd, cssnano() ))
+
+    // output
+    .pipe(gulp.dest(RUNTIME_CONFIG.paths.out))
+
+    // livereload
+    .pipe(gulpif( RUNTIME_CONFIG.isDev, connect.reload() ))
 });
 
 /**
  * Bundles js
  */
-gulp.task('devJs', function(){
+gulp.task('bundleJs', function(){
+  // bundle w/ browserify
   browserify({
   	entries: [
       path.join(PATHS.input, 'js', 'main.js')
     ],
-  	debug: true
+  	debug: RUNTIME_CONFIG.isDev
 	})
   .on('error', handleErrors)
   .bundle()
   .on('error', handleErrors)
-  .pipe(source('bundle.js'))
-  .pipe(gulp.dest(PATHS.dev_out))
-  .pipe(connect.reload())
 
+  //convert to stream
+  .pipe(source(RUNTIME_CONFIG.filenames.js))
+
+  // prod functions
+  .pipe(gulpif( RUNTIME_CONFIG.isProd, streamify(uglify()) ))
+
+  // output
+  .pipe(gulp.dest(RUNTIME_CONFIG.paths.out))
+
+  // livereload
+  .pipe(gulpif( RUNTIME_CONFIG.isDev, connect.reload() ))
 });
 
 /**
  * Compile case studies in static HTML files
  */
+var hbs_options = {
+ // array of filepaths for partials
+ batch: path.join(PATHS.input, 'views', 'partials')
+}
+
 gulp.task('compileCaseStudies', function(){
 
+  // get raw template
   var template = path.join(PATHS.input, 'views', 'case-study.handlebars');
 
-  // array of files within dir
+  // array of filenames for case studies
   var case_filenames = fs.readdirSync(path.join(PATHS.input, 'case-study-data'));
 
+  // iterate over file names
   case_filenames.forEach(function(filename){
 
+    // get raw JSON data
     var data = JSON.parse(fs.readFileSync(path.join(PATHS.input, 'case-study-data', filename)));
+    // get name without json extension
     var name = filename.replace(/.json$/, '');
 
+    // compile with handlebars()
     gulp.src(template)
-      .pipe(handlebars(data))
+      .pipe(handlebars(data, hbs_options))
       .pipe(concat("case-study_" + name + '.html'))
-      .pipe(gulp.dest(PATHS.dev_out))
-      .pipe(connect.reload());
+      .pipe(gulp.dest(RUNTIME_CONFIG.paths.out))
+      .pipe(gulpif( RUNTIME_CONFIG.isDev, connect.reload() ))
   });
 
 });
@@ -104,16 +167,11 @@ gulp.task('compileCaseStudies', function(){
  * Compile index into a static HTML file
  */
 gulp.task('compileIndex', function(){
-  var opts = {
-    // array of filepaths for partials
-    batch: path.join(PATHS.input, 'views', 'partials')
-  }
-
   gulp.src(path.join(PATHS.input, 'views', 'index.handlebars'))
-    .pipe(handlebars({}, opts))
+    .pipe(handlebars({}, hbs_options))
     .pipe(concat("index.html"))
-    .pipe(gulp.dest(PATHS.dev_out))
-    .pipe(connect.reload());
+    .pipe(gulp.dest(RUNTIME_CONFIG.paths.out))
+    .pipe(gulpif( RUNTIME_CONFIG.isDev, connect.reload() ))
 });
 
 /**
@@ -125,14 +183,14 @@ gulp.task("devWatch", function(){
     path.join(PATHS.input, 'scss', '*.scss'),
     path.join(PATHS.input, 'scss', '**', '*.scss')
   ], function(){
-    gulp.start('devScss');
+    gulp.start('scss');
   });
 
   gulp.watch([
     path.join(PATHS.input, 'js', '*.js'),
     path.join(PATHS.input, 'js', 'components', '*.js'),
   ], function(){
-    gulp.start('devJs');
+    gulp.start('bundleJs');
   });
 
   gulp.watch([
@@ -154,7 +212,7 @@ gulp.task("devWatch", function(){
 /**
  * Run development web server
  */
- gulp.task('devConnect', ['devScss', 'devJs', 'devWatch'], function() {
+ gulp.task('devConnect', ['scss', 'bundleJs', 'devWatch'], function() {
   connect.server({
     root: [path.join('public', '.dev'), path.join('public', 'assets')],
     livereload: true
