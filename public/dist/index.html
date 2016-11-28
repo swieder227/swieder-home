@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Seth Wieder | UI, UX, Dev | Creative Technology</title>
+    <meta name="author" content="name">
+    <meta name="description" content="A creative developer with expertise in UI/UX design and front-end development. Explore case studies or get in contact.">
+    <link rel="stylesheet" href="/styles.min.css">
+  </head>
+  <body>
+    <section class="full-page">
+      <h1>Sup.</h1>
+      <p>I’m Seth Wieder.</p>
+      <p>A creative developer with expertise in UI/UX design and front-end development.</p>
+      <p>I work with start-ups, agencies, and software companies to bridge business&nbsp;goals, user&nbsp;needs, and technology into a focused, engaging, and useful user&nbsp;experience.&nbsp;😎</p>
+      <!--div>
+        <a href="#designer" class="button">See the site</a>
+        <span> or </span>
+        <a href="mailto:contact@sethwieder.com" target="_blank" class="button">Contact</a>
+      </div-->
+    </section>
+    <section class="full-page" id="designer">
+      <h2>Designer</h2>
+      <p>Entrepenuers and start-ups work with me to translate their concepts into reality. Through research and extensive experience, I craft a focused&nbsp;UX and modern&nbsp;UI.</p>
+      <p class="p--label">Case Study:</p>
+      <a class="case-study-card" href="/case-study_coke.html" style="background-image: url(/casestudies/coke/coke-final1b@0,5x.jpg)">
+        <div class="case-study-card__label">
+          Redesigning a more efficient, future-friendly sales tool
+        </div>
+      </a>
+    </section>
+    <section class="full-page" id="engineer">
+      <h2>Engineer</h2>
+      <p>Software companies entrust in me to architect their web app in an organized, performant, responsive, and future-friendly codebase.</p>
+      <p>Agencies know I create engaging content with a flare of creative technology; combining animated motion graphics, 3D WebGL, and emerging technology such as VR, AR, and&nbsp;AI.</p>
+      <p class="p--label">Case Study:</p>
+      <a class="case-study-card" href="/case-study_pimco.html" style="background-image: url(/casestudies/pimco/pimco_card.jpg)">
+        <div class="case-study-card__label">
+          Telling a data-driven story with 3D data vizualizations
+        </div>
+      </a>
+    </section>
+    <section class="full-page" id="professional">
+      <h2>Professional</h2>
+      <p>Both as a leader and a collaborator, I’ve got a proven track record of satisfied clients and succesfully launched campaigns.</p>
+      <p class="p--secondary"><em>“<span class="site--desktop-only">I’ve worked with Seth at two companies now, and </span><span class="site--mobile-only">...</span>he consistently delivers superior quality work on time and on budget. He’s also a wonderful collaborator with other developers and creatives, which leads to a better end product. <span class="site--desktop-only">Put it this way: when I need an A&#x2011;list creative developer, he’s literally my first phone call.</span>”</em></p>
+      <p class="p--secondary"><em>&mdash; Jamie Watson, <br class="site--mobile-only"/>COO at Digital Citizen LLC, <span class="site--desktop-only"><br/>&emsp;</span>previously Executive Director Technology &amp; Innovation at Condé&nbsp;Nast</em></p>
+    </section>
+    <section class="full-page full-page--centered" id="inline-contact">
+      <p class="text-align--center">Let’s chat! First beer is on&nbsp;me.&nbsp;🍻</p>
+      <a href="mailto:contact@sethwieder.com" target="_blank" class="button" ga-event-label="contact--inline">GET IN TOUCH</a>
+    </section>
+    <section class="full-page" id="portfolio">
+      <h2>Portfolio</h1>
+      <p>Check out my previous work in more detail.&nbsp;<br class="site--desktop-only"/>Feel free to reach out and ask any questions.&nbsp;👍</p>
+      <br>
+      <div class="portfolio-grid">
+        <div class="portfolio-grid__row">
+          <div class="portfolio-grid__item case-study-card" disabled></div>
+          <div class="portfolio-grid__item case-study-card" disabled></div>
+        </div>
+        <div class="portfolio-grid__row">
+          <div class="portfolio-grid__item case-study-card" disabled></div>
+          <div class="portfolio-grid__item case-study-card" disabled></div>
+        </div>
+        <div class="portfolio-grid__row">
+          <div class="portfolio-grid__item case-study-card" disabled></div>
+          <div class="portfolio-grid__item case-study-card" disabled></div>
+        </div>
+      </div>
+    </section>
+    <section class="full-page full-page--centered">
+      <p class="text-align--center">Let’s build something awesome&nbsp;together!&nbsp;👊</p>
+    </section>
+    <footer id="footer">
+      <p><a href="https://twitter.com/swieder227" target="_blank" ga-event-label="twitter--footer">@swieder227</a></p>
+      <p><a href="mailto:contact@sethwieder.com" target="_blank" ga-event-label="contact--footer">contact@sethwieder.com</a></p>
+      <p>Copyright S. Wieder Consulting</p>
+      <p>New York, NY</p>
+    </footer>
+
+    <script src="/bundle.min.js"></script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    
+      ga('create', 'UA-80778465-2', 'auto');
+    
+      ga('send', 'pageview');
+    
+    </script>
+    <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=IntersectionObserver"></script>
+    <script>
+      // track when elements come into view
+      // uses new IntersectionObserver API, may require polyfill
+      ga('require', 'impressionTracker', {
+        elements: [
+          { id:"designer", threshold: 0.25 },
+          { id:"engineer", threshold: 0.25 },
+          { id:"professional", threshold: 0.25 },
+          { id:"inline-contact", threshold: 0.5 },
+          { id:"portfolio", threshold: 0.25 },
+          { id:"footer", threshold: 0 }
+        ]
+      });
+
+      // track outbound links (ie, mailto)
+      ga('require', 'outboundLinkTracker', {
+        shouldTrackOutboundLink: function(link, parseUrl) {
+          var href = link.getAttribute('href') || link.getAttribute('xlink:href');
+          var url = parseUrl(href);
+          return url.hostname != location.hostname
+        }
+      });
+    </script>
+
+  </body>
+</html>
