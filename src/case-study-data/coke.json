@@ -4,71 +4,83 @@
   "slides": [
     {
       "picture_srcs": [
-        "<img src='/casestudies/coke/coke-old-tool.png' alt='Screenshot of app'>"
+        "<source srcset='/casestudies/coke/coke-old-tool@0,5x.jpg' media='(max-width: 768px)'>",
+        "<img src='/casestudies/coke/coke-old-tool.jpg' alt=''>"
       ],
       "caption_content": "<p>The starting point — an outdated Flash application. Our objectives, 1.) to understand the tool’s purpose and valuable features, then 2.) to redesign with a focus on usability, and 3.) to rebuild for the modern web.</p>"
     },
     {
       "picture_srcs": [
-        "<img src='/casestudies/coke/coke-survey.png' alt='Screenshot of app'>"
+        "<source srcset='/casestudies/coke/coke-survey@0,5x.jpg' media='(max-width: 768px)'>",
+        "<img src='/casestudies/coke/coke-survey.jpg' alt=''>"
       ],
       "caption_content": "<p>In order to understand how the tool currently works and what users expect the tool to do, we begin with UX research. We inteviewed key stakeholders for quality feedback, and provided this form to a larger salesman group for quantitative feedback.</p>"
     },
     {
       "picture_srcs": [
-        "<img src='/casestudies/coke/coke-ux-research.png' alt='Screenshot of app'>"
+        "<source srcset='/casestudies/coke/coke-ux-research@0,5x.jpg' media='(max-width: 768px)'>",
+        "<img src='/casestudies/coke/coke-ux-research.jpg' alt=''>"
       ],
       "caption_content": "<p>After identifying the key features, we searched for design proof of concepts. We presented the new design solutions and explained the reasoning for our approach. Always design with intent — one should be able to explain their design choices.</p>"
     },
     {
       "picture_srcs": [
-        "<img src='/casestudies/coke/coke-wireframes-presentation.png' alt='Screenshot of app'>"
+        "<source srcset='/casestudies/coke/coke-wireframes-presentation@0,5x.jpg' media='(max-width: 768px)'>",
+        "<img src='/casestudies/coke/coke-wireframes-presentation.jpg' alt=''>"
       ],
       "caption_content": "<p>With general ideas agreed upon, we started to draft UI wireframes. We again thought it imperative that we shared our concepts with the clients and elaborated on why the new solution would be more effective.</p>"
     },
     {
       "picture_srcs": [
-        "<img src='/casestudies/coke/coke-wireframes.png' alt='Screenshot of app'>"
+        "<source srcset='/casestudies/coke/coke-wireframes@0,5x.jpg' media='(max-width: 768px)'>",
+        "<img src='/casestudies/coke/coke-wireframes.jpg' alt=''>"
       ],
       "caption_content": "<p>Wireframes begin to take form by solidifying features and incorporating the client’s Branding Documents.</p>"
     },
     {
       "picture_srcs": [
-        "<img src='/casestudies/coke/coke-designs.png' alt='Screenshot of app'>"
+        "<source srcset='/casestudies/coke/coke-designs@0,5x.jpg' media='(max-width: 768px)'>",
+        "<img src='/casestudies/coke/coke-designs.jpg' alt=''>"
       ],
       "caption_content": "<p>After feedback revisions between designers and client’s stakeholders, we finalized designs for the application’s user interface.</p>"
     },
     {
       "picture_srcs": [
-        "<img src='/casestudies/coke/coke-motion-video.png' alt='Screenshot of app'>"
+        "<source srcset='/casestudies/coke/coke-motion-video@0,5x.jpg' media='(max-width: 768px)'>",
+        "<img src='/casestudies/coke/coke-motion-video.jpg' alt=''>"
       ],
       "caption_content": "<p>Static UI assets can be difficult to visualize. To tackle that problem, I created an interactive and animated prototype which efficiently provided the client a more clear understanding of how the new UI would function in real-time use.</p><br><a href='https://goo.gl/zbPj92' target='_blank' class='button'>Open motion prototype walkthrough</a>"
     },
     {
       "picture_srcs": [
-        "<img src='/casestudies/coke/coke-components.png' alt='Screenshot of app'>"
+        "<source srcset='/casestudies/coke/coke-components@0,5x.jpg' media='(max-width: 768px)'>",
+        "<img src='/casestudies/coke/coke-components.jpg' alt=''>"
       ],
       "caption_content": "<p>First step before writing a line of code? Plan. We mapped out the application architecture in order to guide our development strategy with a clear understanding of the intended state mangement, modularization, and code reuse.</p>"
     },
     {
       "picture_srcs": [
-        "<img src='/casestudies/coke/coke-react-flux.png' alt='Screenshot of app'>"
+        "<source srcset='/casestudies/coke/coke-react-flux@0,5x.jpg' media='(max-width: 768px)'>",
+        "<img src='/casestudies/coke/coke-react-flux.jpg' alt=''>"
       ],
       "caption_content": "<p>The tool was a responsive, data-driven, UI-heavy web application. We decided the best framework was ReactJS for front-end UI components, and Flux for managing application state and connecting to Database APIs. We also had the challenge of integrating a 3rd-party map API.</p>"
     },
     {
       "picture_srcs": [
-        "<img src='/casestudies/coke/coke-final1b.png' alt='Screenshot of app'>"
+        "<source srcset='/casestudies/coke/coke-final1b@0,5x.jpg' media='(max-width: 768px)'>",
+        "<img src='/casestudies/coke/coke-final1b.jpg' alt=''>"
       ]
     },
     {
       "picture_srcs": [
-        "<img src='/casestudies/coke/coke-final3.png' alt='Screenshot of app'>"
+        "<source srcset='/casestudies/coke/coke-final3@0,5x.jpg' media='(max-width: 768px)'>",
+        "<img src='/casestudies/coke/coke-final3.jpg' alt=''>"
       ]
     },
     {
       "picture_srcs": [
-        "<img src='/casestudies/coke/coke-final2.png' alt='Screenshot of app'>"
+        "<source srcset='/casestudies/coke/coke-final2@0,5x.jpg' media='(max-width: 768px)'>",
+        "<img src='/casestudies/coke/coke-final2.jpg' alt=''>"
       ],
       "caption_content": "<p>The final result — a clean, focused, and useful update to the Heat Map tool. The client’s feedback was mission successful. All of the core features were included, but now in a more usable interface and on a modern technology platform.</p>"
     }
