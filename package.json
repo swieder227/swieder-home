@@ -38,5 +38,9 @@
     "gulp-util": "^3.0.7",
     "path": "^0.12.7",
     "vinyl-source-stream": "^1.1.0"
+  },
+  "dependencies": {
+    "compression": "^1.6.2",
+    "express": "^4.14.0"
   }
 }
