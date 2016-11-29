@@ -4,9 +4,13 @@
 var express = require('express');
 var app = express();
 var compression = require('compression');
+var favicon = require('serve-favicon');
 
 // Enable gzip
 app.use(compression());
+
+// Favicon
+app.use(favicon(__dirname + '/public/assets/images/favicon.ico'));
 
 /**
  * GET static files
