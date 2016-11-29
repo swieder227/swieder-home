@@ -262,6 +262,7 @@ gulp.task('default', ['devConnect']);
  */
 gulp.task('prodBuild', ['scss', 'bundleJs', 'compileIndex', 'compileCaseStudies'], function(){
   setTimeout(function(){
-    gutil.log(gutil.colors.green("prodBuild complete"), "|", "env:", ENV, "|", "output:", RUNTIME_CONFIG.paths.out )
+    gutil.log(gutil.colors.green("prodBuild complete"), "|", "env:", ENV, "|", "output:", RUNTIME_CONFIG.paths.out );
+    gutil.log("Run", gutil.colors.red("`npm run serve-prod`"), "to test on prod server.");
   }, 10 );
 })
