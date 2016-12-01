@@ -41,6 +41,7 @@ img {
 }
 
 .full-page {
+  position: relative;
   min-height: 100vh;
   max-width: 960px;
   margin: 0 auto;
@@ -145,4 +146,32 @@ footer p {
 
 .text-align--center {
   text-align: center;
+}
+
+@keyframes arrow_bounce {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-0.5rem);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.scroll-indicator-arrow {
+  fill: none;
+  stroke: rgba(0, 0, 0, 0.2);
+  stroke-width: 7px;
+  position: absolute;
+  bottom: 1rem;
+  left: 47%;
+  width: 32px;
+  height: 32px;
+  left: calc(50% - 16px);
+  animation-name: arrow_bounce;
+  animation-duration: 2.5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
 }
