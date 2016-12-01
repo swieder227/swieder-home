@@ -32,6 +32,14 @@ img {
   }
 }
 
+#mobile-detect {
+  display: block;
+
+  @media (max-width: $breakpoint--mobile-max){
+    display: none;
+  }
+}
+
 .full-page {
   min-height: 100vh;
   max-width: 960px;
