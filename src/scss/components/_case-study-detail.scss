@@ -49,10 +49,10 @@ $case-study-detail__header--height: 4rem;
 
 .case-study-detail__back-btn {
   position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 5px;
-  width: 40px;
+  top: 5px;
+  bottom: 5px;
+  left: 0.75rem;
+  width: 2.5rem;
   border-radius: 50%;
 
   svg {
@@ -88,5 +88,9 @@ $case-study-detail__header--height: 4rem;
   p {
     margin: 0;
     font-size: 1.15rem;
+
+    @media (max-width: $breakpoint--mobile-max){
+      font-size: 1.1rem;
+    }
   }
 }
