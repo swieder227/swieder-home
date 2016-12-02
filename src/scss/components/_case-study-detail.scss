@@ -33,6 +33,7 @@ $case-study-detail__header--height: 4rem;
   bottom: 0;
   background: white;
   overflow: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .case-study-detail__content-contain {
