@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -16,7 +16,7 @@
       <p>I work with start-ups, agencies, and software companies to bridge business&nbsp;goals, user&nbsp;needs, and technology into a focused, engaging, and useful user&nbsp;experience.&nbsp;😎</p>
       <svg class="scroll-indicator-arrow" width="66px" height="34px" viewBox="0 0 66 34">
         <polyline points="2.18024981 2.46762336 32.8647922 29.7055008 63.8478778 2.46762336"></polyline>
-      </svg-->
+      </svg>
     </section>
     <section class="full-page" id="designer">
       <h2>Designer</h2>
@@ -46,30 +46,30 @@
       <p class="p--secondary"><em>&mdash; Jamie Watson, <br class="site--mobile-only"/>COO at Digital Citizen LLC, <span class="site--desktop-only"><br/>&emsp;</span>previously Executive Director Technology &amp; Innovation at Condé&nbsp;Nast</em></p>
     </section>
     <section class="full-page full-page--centered" id="inline-contact">
-      <p class="text-align--center">Let’s chat! First beer is on&nbsp;me.&nbsp;🍻</p>
-      <a href="mailto:contact@sethwieder.com" target="_blank" class="button" ga-event-label="contact--inline">GET IN TOUCH</a>
+      <h6 class="text-align--center">Let’s chat! First beer is on&nbsp;me.&nbsp;🍻</h6>
+      <p>Shoot an email to: <a href="mailto:contact@sethwieder.com" target="_blank" data-ga-event-label="contact--inline">contact@sethwieder.com</a></p>
     </section>
     <section class="full-page" id="portfolio">
-      <h2>Portfolio</h1>
+      <h2>Portfolio</h2>
       <p>Check out more of my previous works.&nbsp;<br class="site--desktop-only"/>Feel free to reach out and ask any questions.&nbsp;👍</p>
       <br>
       <div class="portfolio-grid">
         <div class="portfolio-grid__row">
-          <div class="portfolio-grid__item case-study-card case-study-card--top-left" disabled style="background-image: url(/casestudies/ibm/usopen_watson_card.jpg)"></div>
-          <div class="portfolio-grid__item case-study-card" disabled style="background-image: url(/casestudies/target/targetstyle_shazam.jpg)"></div>
+          <div class="portfolio-grid__item case-study-card case-study-card--top-left" data-disabled style="background-image: url(/casestudies/ibm/usopen_watson_card.jpg)"></div>
+          <div class="portfolio-grid__item case-study-card" data-disabled style="background-image: url(/casestudies/target/targetstyle_shazam.jpg)"></div>
         </div>
         <div class="portfolio-grid__row">
-          <div class="portfolio-grid__item case-study-card case-study-card--top-center" disabled style="background-image: url(/casestudies/rxm/rxm_se.jpg)"></div>
-          <div class="portfolio-grid__item case-study-card case-study-card--top-center" disabled style="background-image: url(/casestudies/23s/case_23_ms.jpg)"></div>
+          <div class="portfolio-grid__item case-study-card case-study-card--top-center" data-disabled style="background-image: url(/casestudies/rxm/rxm_se.jpg)"></div>
+          <div class="portfolio-grid__item case-study-card case-study-card--top-center" data-disabled style="background-image: url(/casestudies/23s/case_23_ms.jpg)"></div>
         </div>
       </div>
     </section>
     <section class="full-page full-page--centered">
-      <p class="text-align--center">Let’s build something awesome&nbsp;together!&nbsp;👊</p>
+      <h6 class="text-align--center">Let’s build something awesome&nbsp;together!&nbsp;👊</h6>
     </section>
     <footer id="footer">
-      <p><a href="https://twitter.com/swieder227" target="_blank" ga-event-label="twitter--footer">@swieder227</a></p>
-      <p><a href="mailto:contact@sethwieder.com" target="_blank" ga-event-label="contact--footer">contact@sethwieder.com</a></p>
+      <p><a href="https://twitter.com/swieder227" target="_blank" data-ga-event-label="twitter--footer">@swieder227</a></p>
+      <p><a href="mailto:contact@sethwieder.com" target="_blank" data-ga-event-label="contact--footer">contact@sethwieder.com</a></p>
       <p>Copyright S. Wieder Consulting</p>
       <p>New York, NY</p>
     </footer>
@@ -109,7 +109,8 @@
           var href = link.getAttribute('href') || link.getAttribute('xlink:href');
           var url = parseUrl(href);
           return url.hostname != location.hostname
-        }
+        },
+        attributePrefix: 'data-ga-'
       });
     </script>
 
