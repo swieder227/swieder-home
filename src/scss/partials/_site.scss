@@ -101,9 +101,11 @@ h2 {
   color: lighten($color--black, 88%);
 }
 
-p {
+h6, p {
   font-size: 1.5rem;
+  font-weight: normal;
   line-height: 1.5;
+  margin: 1em 0;
 
   @media (max-width: $breakpoint--mobile-max){
     font-size: 1.35rem;
