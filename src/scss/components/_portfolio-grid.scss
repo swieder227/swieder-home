@@ -9,15 +9,18 @@ $breakpoint--portfolio-mobile: 500px;
   flex-direction: row;
   justify-content: flex-start;
 
+  @media (min-width: $breakpoint--portfolio-mobile + 1){
+    &:not(last-child){
+      margin-bottom: 5%;
+    }
+  }
+
   @media (max-width: $breakpoint--portfolio-mobile){
     flex-direction: column;
     justify-content: center;
   }
 }
 
-.portfolio-grid__row:not(last-child){
-  margin-bottom: 5%;
-}
 
 .portfolio-grid__item {
 

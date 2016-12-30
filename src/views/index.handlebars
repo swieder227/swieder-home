@@ -36,25 +36,25 @@
     <section class="full-page" id="professional">
       <h2>Professional</h2>
       <p>Both as a leader and a collaborator, I’ve got a proven track record of satisfied clients and succesfully launched campaigns.</p>
-      <p class="p--secondary"><em>“<span class="site--desktop-only">I’ve worked with Seth at two companies now, and </span><span class="site--mobile-only">...</span>he consistently delivers superior quality work on time and on budget. He’s also a wonderful collaborator with other developers and creatives, which leads to a better end product. <span class="site--desktop-only">Put it this way: when I need an A&#x2011;list creative developer, he’s literally my first phone call.</span>”</em></p>
+      <p class="p--secondary"><em>“<span class="site--desktop-only">I’ve worked with Seth at two companies now, and </span><span class="site--mobile-only">...</span>he consistently delivers superior quality work on time and on budget. He’s also a wonderful collaborator with other developers and creatives, which leads to a better end product.<span class="site--desktop-only"> Put it this way: when I need an A&#x2011;list creative developer, he’s literally my first phone call.</span>”</em></p>
       <p class="p--secondary"><em>&mdash; Jamie Watson, <br class="site--mobile-only"/>COO at Digital Citizen LLC, <span class="site--desktop-only"><br/>&emsp;</span>previously Executive Director Technology &amp; Innovation at Condé&nbsp;Nast</em></p>
     </section>
     <section class="full-page full-page--centered" id="inline-contact">
       <h6 class="text-align--center">Let’s chat! First beer is on&nbsp;me.&nbsp;🍻</h6>
-      <p>Shoot an email to: <a href="mailto:contact@sethwieder.com" target="_blank" data-ga-event-label="contact--inline">contact@sethwieder.com</a></p>
+      <p><a href="mailto:contact@sethwieder.com" target="_blank" data-ga-event-label="contact--inline">contact@sethwieder.com</a></p>
     </section>
     <section class="full-page" id="portfolio">
       <h2>Portfolio</h2>
-      <p>Check out more of my previous works.&nbsp;<br class="site--desktop-only"/>Feel free to reach out and ask any questions.&nbsp;👍</p>
+      <p>Check out more of my previous works.&nbsp;<br class="site--desktop-only"/>I'm happy to share more details in person.&nbsp;👍</p>
       <br>
       <div class="portfolio-grid">
         <div class="portfolio-grid__row">
-          <div class="portfolio-grid__item case-study-card case-study-card--top-left" data-disabled style="background-image: url(/casestudies/ibm/usopen_watson_card.jpg)"></div>
-          <div class="portfolio-grid__item case-study-card" data-disabled style="background-image: url(/casestudies/target/targetstyle_shazam.jpg)"></div>
+          {{> case-study-card extra-classes="case-study-card--top-left portfolio-grid__item" label="Utilizing IBM Watson AI for real&#8209;time social media analysis" img_src="/casestudies/ibm/usopen_watson_card.jpg" }}
+          {{> case-study-card extra-classes="portfolio-grid__item" label="Integrating image recognition for a second&#8209;screen experience" img_src="/casestudies/target/targetstyle_shazam.jpg" }}
         </div>
         <div class="portfolio-grid__row">
-          <div class="portfolio-grid__item case-study-card case-study-card--top-center" data-disabled style="background-image: url(/casestudies/rxm/rxm_se.jpg)"></div>
-          <div class="portfolio-grid__item case-study-card case-study-card--top-center" data-disabled style="background-image: url(/casestudies/23s/case_23_ms.jpg)"></div>
+          {{> case-study-card extra-classes="case-study-card case-study-card--top-left portfolio-grid__item" label="Launching a digital agency starts with a kick-ass website" img_src="/casestudies/rxm/rxm_se.jpg" }}
+          {{> case-study-card extra-classes="case-study-card case-study-card--top-center portfolio-grid__item" label="A high-profile homepage powered by a professional CMS" img_src="/casestudies/23s/case_23_ms.jpg" }}
         </div>
       </div>
     </section>
