@@ -1,0 +1,52 @@
+runtime: python27
+api_version: 1
+threadsafe: true
+
+
+libraries:
+- name: webapp2
+  version: latest
+
+
+handlers:
+
+# Static asset files
+- url: /casestudies
+  static_dir: public/assets/casestudies
+- url: /images
+  static_dir: public/assets/images
+
+# Static build files
+- url: /(.*\.(js|css|map))
+  static_files: public/dist/\1
+  upload: public/dist/(.*\.(js|css|map))
+
+# Root Index + html requests
+- url: /(.*\.html)
+  static_files: public/dist/\1
+  upload: public/dist/(.*\.html)
+- url: /$
+  static_files: public/dist/index.html
+  upload: public/dist/index.html
+
+
+skip_files: |
+  ^(.*/)?(
+  (app\.yaml)|
+  (index\.yaml)|
+  (\..*)|
+  (src)|
+  (node_modules)|
+  (.*\.pyc)|
+  (.*\.bat)|
+  (.*\.psd)|
+  (Thumbs\.db)|
+  (.*\.svn/.*)|
+  (.*\.lnk)|
+  (.*\.datastore)|
+  (_darcs/.*)|
+  (nbproject/.*)|
+  (.*\.swp)|
+  (.*\.log)|
+  (tests)|
+  )$

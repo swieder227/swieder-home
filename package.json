@@ -6,7 +6,8 @@
   "scripts": {
     "start": "gulp --env dev",
     "build": "gulp prodBuild --env prod",
-    "serve-prod": "node server.js"
+    "serve-prod": "dev_appserver.py app.yaml",
+    "deploy": "gcloud app deploy"
   },
   "repository": {
     "type": "git",
@@ -39,10 +40,5 @@
     "gulp-util": "^3.0.7",
     "path": "^0.12.7",
     "vinyl-source-stream": "^1.1.0"
-  },
-  "dependencies": {
-    "compression": "^1.6.2",
-    "express": "^4.14.0",
-    "serve-favicon": "^2.3.2"
   }
 }
