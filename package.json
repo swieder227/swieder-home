@@ -7,7 +7,7 @@
     "start": "gulp --env dev",
     "build": "gulp prodBuild --env prod",
     "serve-prod": "dev_appserver.py app.yaml",
-    "deploy": "gcloud app deploy"
+    "deploy": "gcloud app deploy --project=swiederdotcom"
   },
   "repository": {
     "type": "git",

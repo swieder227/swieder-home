@@ -21,3 +21,11 @@ The front-end code for [sethwieder.com](http://www.sethwieder.com).
     # Generate production-ready assets
     # Run gulp tasks with `prod` flag
     npm run build
+
+#### Deployment
+    # Confirm gcloud CLI is installed
+    # If not, [install the SDK](https://cloud.google.com/sdk/docs/install)
+    gcloud -v
+
+    # Deploy to AppEngine
+    npm run deploy
