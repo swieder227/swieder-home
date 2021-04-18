@@ -18,6 +18,9 @@
   "bugs": {
     "url": "https://github.com/swieder227/swieder-home/issues"
   },
+  "engines" : {
+    "node" : "8.17.0"
+  },
   "homepage": "",
   "devDependencies": {
     "autotrack": "^1.0.3",
